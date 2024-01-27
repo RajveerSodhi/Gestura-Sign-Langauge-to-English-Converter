@@ -1,3 +1,4 @@
+import time
 import cv2
 from cvzone.HandTrackingModule import HandDetector
 from cvzone.ClassificationModule import Classifier
@@ -12,7 +13,7 @@ offset = 20
 imgSize = 200
 folder = "C:\\Users\\OM\\asl_alphabet_train\\asl_alphabet_train"
 counter = 0
-labels = ['D', 'A', 'C', 'B', 'E', 'F', 'I', 'T', 'O', 'N', 'S', 'H', 'R', 'M', 'L']
+labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 while True:
     success, img = cap.read()
     imgOutput = img.copy()
@@ -21,7 +22,14 @@ while True:
         hand = hands[0]
         x, y, w, h = hand['bbox']
         imgWhite = np.ones((imgSize, imgSize, 3), np.uint8) * 255
-        imgCrop = img[y - offset:y + h + offset, x - offset:x + w + offset]
+        # Ensure the bounding box is within the range of the image
+        y_start = max(0, y - offset)
+        y_end = min(img.shape[0], y + h + offset)
+        x_start = max(0, x - offset)
+        x_end = min(img.shape[1], x + w + offset)
+
+        imgCrop = img[y_start:y_end, x_start:x_end]
+        # imgCrop = img[y - offset:y + h + offset, x - offset:x + w + offset]
         imgCropShape = imgCrop.shape
         aspectRatio = h / w
         if aspectRatio > 1:
@@ -48,14 +56,24 @@ while True:
                       (x + w+offset, y + h+offset), (255, 0, 255), 4)
         cv2.imshow("ImageCrop", imgCrop)
         cv2.imshow("ImageWhite", imgWhite)
+        # Get the current time
+        current_time = time.time()
+        last_update  = 0
 
-        # Update the sentence with the recognized letter
-        sentence += labels[index]
+        # Only update the sentence if at least 3 seconds have passed
+        if current_time - last_update > 3:
+            # Your existing code to recognize the letter here...
 
-        # Display the sentence in a separate window
-        cv2.putText(imgOutput, sentence, (10, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 2)
-        cv2.imshow("Sentence", imgOutput)
+            # Update the sentence with the recognized letter
+            sentence += labels[index]
 
-        
+            # Update the time of the last update
+            last_update = current_time
+
+    # Display the sentence in a separate window
+    cv2.putText(imgOutput, sentence, (10, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 2)
+    cv2.imshow("Sentence", imgOutput)
+
+
     cv2.imshow("Image", imgOutput)
     cv2.waitKey(1)
