@@ -10,12 +10,9 @@ cap = cv2.VideoCapture(0)
 detector = HandDetector(maxHands=1)
 classifier = Classifier("Model/keras_model.h5", "Model/labels.txt")
 offset = 20
-<<<<<<< Updated upstream
-imgSize = 200
-# folder = "C:\\Users\\OM\\asl_alphabet_train\\asl_alphabet_train"
-=======
+
 imgSize = 400
->>>>>>> Stashed changes
+
 counter = 0
 labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 last_update = time.time()  # Initialize the last update time
