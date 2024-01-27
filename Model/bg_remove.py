@@ -31,8 +31,13 @@ else:
     # Change all pixels in the background that are not black to black
     background[np.where((background > [0, 0, 0]).all(axis=2))] = [0, 0, 0]
 
-    # Add the background and the image
-    final = background + img1
+    # Add the background and the image with alpha blending
+    alpha = 0.7  # You can adjust the alpha value for blending
+    final = cv2.addWeighted(img1, alpha, background, 1 - alpha, 0)
+
+    # Save the image with a valid file extension (e.g., PNG)
+    save_path = "/Users/rajveersodhi/Desktop/output_image.png"
+    cv2.imwrite(save_path, final)
 
     cv2.imshow('image', final)
     cv2.waitKey(0)
