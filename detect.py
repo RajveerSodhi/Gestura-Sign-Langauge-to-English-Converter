@@ -13,6 +13,7 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 classifier = Classifier("Model/keras_model.h5", "Model/labels.txt")
 labels = ["D", "A", "C", "B", "E", "F", "I", "T", "O", "N", "S", "H", "R", "M", "L"]
 res = ""
+detector = HandDetector(maxHands=1)
 
 # Set the delay to 3 seconds (3000 milliseconds)
 delay = 3  # seconds
@@ -27,13 +28,20 @@ while True:
     # Run the classifier every 3 seconds
     if current_time - last_time >= delay:
         imgOutput = img.copy()
-        prediction, index = classifier.getPrediction(img, draw=False)
-        print(prediction, index)
-        cv2.putText(imgOutput, labels[index], (100, 100), cv2.FONT_HERSHEY_COMPLEX, 1.7, (255, 255, 255), 2)
-        res += labels[index]
+        hands, img = detector.findHands(imgOutput)
+        if hands:
+            prediction, index = classifier.getPrediction(img, draw=False)
+            print(prediction, index)
+            cv2.putText(imgOutput, labels[index], (100, 100), cv2.FONT_HERSHEY_COMPLEX, 1.7, (255, 255, 255), 2)
+            res += labels[index]
 
-        cv2.imshow("Image", imgOutput)
-        last_time = time.time()  # Update the last time
+            cv2.imshow("Image", imgOutput)
+            last_time = time.time()  # Update the last time
+        else:
+            cv2.putText(imgOutput, "space", (100, 100), cv2.FONT_HERSHEY_COMPLEX, 1.7, (255, 255, 255), 2)
+            res += " "
+            cv2.imshow("Image", imgOutput)
+            last_time = time.time()  # Update the last time
 
     # Exit the loop if 'q' key is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
