@@ -1,4 +1,6 @@
 from moviepy.editor import *
+import sys
+
 
 MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     'C':'-.-.', 'D':'-..', 'E':'.',
@@ -76,12 +78,5 @@ def animate_alien(text):
     final_video = concatenate_videoclips(final_videos, method="compose")
     final_video.write_videofile("alien_morse.mp4", verbose=False, logger=None, threads=64, fps=20)
 
-    # loading video dsa gfg intro video
-    clip = VideoFileClip("alien_morse.mp4")
 
-    clip = clip.subclip(0)
-
-    # previewing the clip at fps = 20
-    clip.preview(fps=20)
-
-animate_alien("ribhav")
+animate_alien(sys.argv[1])

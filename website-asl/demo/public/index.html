@@ -7,25 +7,6 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <script>
-        function addDarkmodeWidget() {
-            const darkmode = new Darkmode().showWidget();
-            darkmode.toggle();
-            darkmode.toggle();
-        }
-        window.addEventListener("load", addDarkmodeWidget);
-
-        function toggleContent(){
-          const content = document.getElementById("content");
-          const darkModeActive = document.querySelector("body").classList.contains("darkmode--activated");
-          if(darkModeActive){
-            content.innerHTML = "Dark mode is active !";
-          }
-          else{
-            content.innerHTML = "Light mode is active !";
-          }
-        }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <link rel="icon" href="./logo.ico">
     <title>Gestura</title>
@@ -61,7 +42,12 @@
             </select>
             <button type="submit" class="cta-button" id="cta-button">Get Started</button>
           </form>
-          <p id="hero-content">We have created a program that takes in ASL gestures and converts it to text and speech in 5 different languages. This makes it easier for specially abled people to communicate easier. The languages available are English, Japanese, Chinese(Mandarin), French and Spanish. This could also allow people who have knowledge of ASL to learn different languages. Another aspect of our program is to communicate with a new species in their language. It takes in gestures in the Alien language and converts it to English text. If you are interested in knowing more about the same, please email one of the project contributors. </p>
+          
+          <form action="/encrypt" method="GET" id="form-encrypt">
+            <input type="text" name="msg" id="eng-text" >
+            <button type="submit" class="cta-button" id="cta-button">encrypt!</button>
+          </form>
+          <p id="hero-content"> .̵̹̀.̵̹̀.̵̹̀.̵̹̀.̵̹̀ We have created a program that takes in ASL gestures and converts it to text and speech in 5 different languages. This makes it easier for specially abled people to communicate easier. The languages available are English, Japanese, Chinese(Mandarin), French and Spanish. This could also allow people who have knowledge of ASL to learn different languages. Another aspect of our program is to communicate with a new species in their language. It takes in gestures in the Alien language and converts it to English text. If you are interested in knowing more about the same, please email one of the project contributors. </p>
       </div>
   </section>
 

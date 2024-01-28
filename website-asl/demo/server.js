@@ -161,6 +161,20 @@ app.get("/alien", (req, res) => {
   });
 });
 
+app.get('/encrypt',(req,res)=>{
+  const scriptPath = `"${path.join(__dirname, "../../animate_alien.py")}"`;
+  const msg = req.query.msg;
+  exec(`python ${scriptPath} ${msg}`, async (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error executing x.py: ${error}`);
+      res.status(500).send("Internal Server Error");
+    } else {
+      res.sendFile(path.join(__dirname, "./", "alien_morse.mp4"));
+    }
+  });
+
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
