@@ -10,9 +10,16 @@ from keras.models import load_model  # TensorFlow is required for Keras to work
 import cv2  # Install opencv-python
 import numpy as np
 import time
+import os
+import sys
+from language import change_language
+from speech import text_to_speech
+
+lang = sys.argv[1]
 
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
+script_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Load the model
 model = load_model("Model_SJ/keras_model.h5", compile=False)
@@ -75,18 +82,6 @@ cv2.destroyAllWindows()
 from gtts import gTTS
 import os
 
-# Language in which you want to convert
-language = 'en'
-
-# Passing the text and language to the engine
-tts = gTTS(text=res, lang=language, slow=False)
-
-# Saving the converted audio in a file
-tts.save("output.mp3")
-
-# Playing the converted file 
-os.system("start output.mp3")
-
 print(res)
-
+text_to_speech(res,lang)
 
