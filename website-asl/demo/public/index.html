@@ -27,11 +27,17 @@
         }
     </script>
     <title>Generic Website</title>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+    
+    <title>Gestura</title>
 </head>
 <body id="content">
-    <header>
+    <header class="darkmode-ignore">
         <nav>
-            <div class="logo">Logo</div>
+            <div class="logo">
+              <img src="logo.png" id="logo" height="50" width="50">
+            </div>
             <ul>
                 <li><a href="#Home">Home</a></li>
                 <li><a href="#Features">Features</a></li>
@@ -46,11 +52,17 @@
       <div class="content">
          <span id="element"></span>
           <p id="subhead">Good communication is the bridge between confusion and clarity </p>
-          <form action="/run" method="GET">
-            <input type="text" name="language" placeholder="language">
+          <form action="/run" method="GET" id="form">
+            <select name="language" id="dd">
+              <option value="english">English</option>
+              <option value="japanese">Japanese</option>
+              <option value="chinese">Chinese (Mandarin)</option>
+              <option value="french">French</option>
+              <option value="spanish">Spanish</option>
+            </select>
             <button type="submit" class="cta-button" id="cta-button">Get Started</button>
           </form>
-          <p>We have created a program that takes in ASL gestures and converts it to text and speech in 5 different languages. This makes it easier for specially abled people to communicate easier. The languages available are English, Japanese, Chinese(Mandarin), French and Spanish. This could also allow people who have knowledge of ASL to learn different languages. Another aspect of our program is to communicate with a new species in their language. It takes in gestures in the Alien language and converts it to English text. If you are interested in knowing more about the same, please email one of the project contributors !!</p>
+          <p id="hero-content">We have created a program that takes in ASL gestures and converts it to text and speech in 5 different languages. This makes it easier for specially abled people to communicate easier. The languages available are English, Japanese, Chinese(Mandarin), French and Spanish. This could also allow people who have knowledge of ASL to learn different languages. Another aspect of our program is to communicate with a new species in their language. It takes in gestures in the Alien language and converts it to English text. If you are interested in knowing more about the same, please email one of the project contributors. </p>
       </div>
   </section>
 
@@ -131,7 +143,6 @@
         <p>&copy; 2024 Your Website Name. All rights reserved.</p>
     </footer>
 
-    <script src="app.js"></script>
     <script>
       var typed = new Typed('#element', {
         strings: ['<i>Hello</i> Human.', 'Welcome to The Future!'],
@@ -141,6 +152,7 @@
       const darkmodeToggle = document.querySelector(".darkmode-toggle");
       darkmodeToggle.addEventListener("click", toggleContent);
     </script>
+    <script src="app.js"></script>
 
 </body>
 

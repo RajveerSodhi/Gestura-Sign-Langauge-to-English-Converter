@@ -3,26 +3,6 @@ import enchant
 
 diction = enchant.Dict("en_US")
 
-weird_texts = [
-    "               cat",
-    "ccat",
-    "cccccccccccat",
-    "caaaaaaaat",
-    "catttttttt",
-    "      catttttt",
-    "       ccccccaaaaaaattttttt       ",
-    "caat",
-    "catd",
-    "dcat",
-    "hcat",
-    "cddat",
-    "hi        cat",
-    "chat",
-    "c     at",
-    "my c at is cute",
-    " i m y c at"
-]
-
 def fix_text(text):
     # remove leading and trailing spaces
     text = text.strip()

@@ -7,36 +7,37 @@ body {
 }
 
 header {
-  background-color: #333;
   color: #000000;
-  padding: 1em 0;
+  width: 100%;
 }
 
 nav {
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
+#logo{
+  margin-left: 20px;
+  padding: 1em;
 }
 
 ul {
   list-style: none;
   display: flex;
+  
 }
 
 li {
   margin: 0 15px;
+  color: #000;
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 
 .hero {
@@ -165,18 +166,14 @@ footer{
   object-fit:cover;
 }
 
-.darkmode-activated {
-  transition: background-color 0.5s ease;
-  color: #000;
-  background-color: #fff;
+.darkmode--activated #element {
+  color: #ffffff; /* Change the color to your desired color */
 }
 
-.dark-mode {
-  color: #fff;
-  background-color: #000;
+.darkmode--activated #subhead {
+  color: #ffffff; /* Change the color to your desired color */
 }
 
-button {
-  padding: 10px 20px;
-  margin: 10px;
+.darkmode--activated #hero-content {
+  color: #ffffff; /* Change the color to your desired color */
 }
