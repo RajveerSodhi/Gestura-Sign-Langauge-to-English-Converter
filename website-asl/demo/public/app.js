@@ -62,6 +62,19 @@ document.addEventListener('DOMContentLoaded', function () {
             for (var i = 0; i < h2Tags.length; i++) {
                 h2Tags[i].innerHTML = convertToValidMorseLowercase(h2Tags[i].innerHTML);
             }
+
+            //Reset all <img> tags to original image tags
+            var imgTags = document.getElementsByTagName('img');
+            var lightModeimages = ['./logo.ico', './images/Om.png', './images/SJ.png','./images/RV.png','./images/RJ.png'];
+
+            for (var i = 0; i < imgTags.length; i++){
+                if (i < lightModeimages.length) {
+                    imgTags[i].src = lightModeimages[i];
+                } else {
+                    console.warn(`No light mode image specified for img tag at index ${i}`);
+                }
+            }
+
         }
         document.getElementById("cta-button").innerHTML = "Get Started";
         document.getElementById("form").action = "/run";  
