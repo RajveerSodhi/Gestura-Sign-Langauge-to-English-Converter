@@ -15,10 +15,10 @@ import time
 np.set_printoptions(suppress=True)
 
 # Load the model
-model = load_model("Model_RJ/keras_model.h5", compile=False)
+model = load_model("Model_SJ/keras_model.h5", compile=False)
 
 # Load the labels
-class_names = open("Model_RJ/labels.txt", "r").readlines()
+class_names = open("Model_SJ/labels.txt", "r").readlines()
 
 # CAMERA can be 0 or 1 based on default camera of your computer
 camera = cv2.VideoCapture(0)
