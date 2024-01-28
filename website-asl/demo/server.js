@@ -144,6 +144,23 @@ app.get("/run", (req, res) => {
   });
 });
 
+app.get("/alien", (req, res) => {
+  const scriptPath = `"${path.join(__dirname, "../../alienNEW.py")}"`;
+  const lang = req.query.language;
+  console.log(langs[lang]);
+  exec(`python ${scriptPath} ${lang}`, async (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error executing x.py: ${error}`);
+      res.status(500).send("Internal Server Error");
+    } else {
+      const lines = stdout.trim().split("\n");
+      const lastLine = lines[lines.length - 1];
+      console.log(lastLine)
+      res.send(lastLine);
+    }
+  });
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

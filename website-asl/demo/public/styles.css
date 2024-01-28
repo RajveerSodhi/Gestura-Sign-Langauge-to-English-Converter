@@ -177,3 +177,14 @@ footer{
 .darkmode--activated #hero-content {
   color: #ffffff; /* Change the color to your desired color */
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  margin-left: 10px; 
+  font-size:xx-large;
+  font-weight: bolder;
+}

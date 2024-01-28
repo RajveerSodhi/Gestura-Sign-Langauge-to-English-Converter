@@ -13,6 +13,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 typeSpeed: 50,
             });
 
+            // Change the images
+            var imgTags = document.getElementsByTagName('img');
+            var darkModeImages = ['./images/alien1.png', './images/alien2.png', './images/alien3.png','./images/alienGun.png','./images/alien1Gun.png'];  // Replace with your actual image paths
+
+            for (var i = 0; i < imgTags.length; i++) {
+                if (i < darkModeImages.length) {
+                    imgTags[i].src = darkModeImages[i];
+                } else {
+                    console.warn(`No dark mode image specified for img tag at index ${i}`);
+                }
+            }
+            
+
             // Convert all <p> tags to Morse code
             var pTags = document.getElementsByTagName('p');
             for (var i = 0; i < pTags.length; i++) {
