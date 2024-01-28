@@ -15,7 +15,7 @@ import time
 np.set_printoptions(suppress=True)
 
 # Load the model
-model = load_model("Model_RJ/keras_Model.h5", compile=False)
+model = load_model("Model_RJ/keras_model.h5", compile=False)
 
 # Load the labels
 class_names = open("Model_RJ/labels.txt", "r").readlines()
@@ -26,7 +26,7 @@ camera = cv2.VideoCapture(0)
 res = ""
 
 # Set the delay to 3 seconds (3000 milliseconds)
-delay = 5000  # seconds
+delay = 3000  # ms
 last_time = time.time()
 
 while True:
