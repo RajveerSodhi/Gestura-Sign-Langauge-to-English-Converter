@@ -3,8 +3,16 @@ import googletrans
 from googletrans import Translator
 
 def change_language(text, lang):
+    codes = {
+        'english':'en',
+        'french':'fr',
+        'spanish':'es',
+        'chinese':'zh-CN',
+        'japanese':'ja'
+    }
     translator = Translator()
-    out = translator.translate(text, dest=lang)
+    out = translator.translate(text, dest=codes[lang])
+    print(out.text)
     return out.text
 
 # text = '''How are you doing'''

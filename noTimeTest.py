@@ -10,15 +10,23 @@ from keras.models import load_model  # TensorFlow is required for Keras to work
 import cv2  # Install opencv-python
 import numpy as np
 import time
+import os
+import sys
+from language import change_language
+from speech import text_to_speech
+
+lang = sys.argv[1]
 
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
+script_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Load the model
-model = load_model("Model_RJ/keras_model.h5", compile=False)
+model = load_model(os.path.join(script_directory, "Model_RJ/keras_model.h5"), compile=False)
+
 
 # Load the labels
-class_names = open("Model_RJ/labels.txt", "r").readlines()
+class_names = open(os.path.join(script_directory, "Model_RJ/labels.txt"), "r").readlines()
 
 # CAMERA can be 0 or 1 based on default camera of your computer
 camera = cv2.VideoCapture(0)
@@ -75,18 +83,6 @@ cv2.destroyAllWindows()
 from gtts import gTTS
 import os
 
-# Language in which you want to convert
-language = 'en'
-
-# Passing the text and language to the engine
-tts = gTTS(text=res, lang=language, slow=False)
-
-# Saving the converted audio in a file
-tts.save("output.mp3")
-
-# Playing the converted file 
-os.system("start output.mp3")
-
 print(res)
-
+text_to_speech(res,lang)
 
