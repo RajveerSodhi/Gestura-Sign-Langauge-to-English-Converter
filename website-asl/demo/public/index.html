@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <title>Generic Website</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Logo</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+      <div id="particles-js"></div>
+      <div class="content">
+         <span id="element"></span>
+          <p id="subhead">Your tagline goes here.</p>
+          <form action="/run" method="GET">
+            <input type="text" name="language" placeholder="language">
+            <button type="submit" class="cta-button" id="cta-button">Get Started</button>
+          </form>
+      </div>
+  </section>
+
+    <section class="section">
+      <div class="image">
+        <img src="image1.jpg" alt="Image 1">
+      </div>
+      <div class="text">
+        <h2>Blah Blah</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu cursus nibh, sit amet tempus erat. Nulla facilisi. Duis vehicula eu nisi sed feugiat. Vestibulum congue magna in velit malesuada aliquet. Donec condimentum augue ac urna elementum convallis in nec nibh. Suspendisse potenti. Donec accumsan eleifend accumsan..</p>
+      </div>
+    </section>
+
+    <section class="section">
+     
+      <div class="text">
+        <h2>Section 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu cursus nibh, sit amet tempus erat. Nulla facilisi. Duis vehicula eu nisi sed feugiat. Vestibulum congue magna in velit malesuada aliquet. Donec condimentum augue ac urna elementum convallis in nec nibh. Suspendisse potenti. Donec accumsan eleifend accumsan..</p>
+
+      </div>
+      <div class="image">
+        <img src="image1.jpg" alt="Image 3">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="image">
+        <img src="image1.jpg" alt="Image 1">
+      </div>
+      <div class="text">
+        <h2>Blah Blah</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu cursus nibh, sit amet tempus erat. Nulla facilisi. Duis vehicula eu nisi sed feugiat. Vestibulum congue magna in velit malesuada aliquet. Donec condimentum augue ac urna elementum convallis in nec nibh. Suspendisse potenti. Donec accumsan eleifend accumsan..</p>
+      </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+      var typed = new Typed('#element', {
+        strings: ['<i>First</i> sentence.', '&amp; a second sentence.'],
+        typeSpeed: 50,
+      });
+    </script>
+
+</body>
+</html>
