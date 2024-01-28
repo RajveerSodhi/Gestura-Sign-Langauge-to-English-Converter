@@ -6,12 +6,13 @@ import math
 import time
 
 cap = cv2.VideoCapture(0)
-width = 265
-height = 26
+width = 224 
+height = 244
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
-classifier = Classifier("Model/keras_model.h5", "Model/labels.txt")
-labels = ["D", "A", "C", "B", "E", "F", "I", "T", "O", "N", "S", "H", "R", "M", "L"]
+classifier = Classifier("Model_test/keras_model.h5", "Model_test/labels.txt")
+# labels = ["D", "A", "C", "B", "E", "F", "I", "T", "O", "N", "S", "H", "R", "M", "L"]
+labels = ["A","B","C"]
 res = ""
 detector = HandDetector(maxHands=1)
 
@@ -26,22 +27,22 @@ while True:
 
     current_time = time.time()
     # Run the classifier every 3 seconds
-    if current_time - last_time >= delay:
-        imgOutput = img.copy()
-        hands, img = detector.findHands(imgOutput)
-        if hands:
-            prediction, index = classifier.getPrediction(img, draw=False)
-            print(prediction, index)
-            cv2.putText(imgOutput, labels[index], (100, 100), cv2.FONT_HERSHEY_COMPLEX, 1.7, (255, 255, 255), 2)
-            res += labels[index]
+    # if current_time - last_time >= delay:
+    imgOutput = img.copy()
+    hands, _ = detector.findHands(imgOutput)
+    if hands:
+        prediction, index = classifier.getPrediction(img, draw=False)
+        print(prediction, index)
+        cv2.putText(imgOutput, labels[index], (100, 100), cv2.FONT_HERSHEY_COMPLEX, 1.7, (255, 255, 255), 2)
+        res += labels[index]
 
-            cv2.imshow("Image", imgOutput)
-            last_time = time.time()  # Update the last time
-        else:
-            cv2.putText(imgOutput, "space", (100, 100), cv2.FONT_HERSHEY_COMPLEX, 1.7, (255, 255, 255), 2)
-            res += " "
-            cv2.imshow("Image", imgOutput)
-            last_time = time.time()  # Update the last time
+        cv2.imshow("Image", imgOutput)
+        last_time = time.time()  # Update the last time
+    # else:
+    #     cv2.putText(imgOutput, "space", (100, 100), cv2.FONT_HERSHEY_COMPLEX, 1.7, (255, 255, 255), 2)
+    #     res += " "
+    #     cv2.imshow("Image", imgOutput)
+    #     last_time = time.time()  # Update the last time
 
     # Exit the loop if 'q' key is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
