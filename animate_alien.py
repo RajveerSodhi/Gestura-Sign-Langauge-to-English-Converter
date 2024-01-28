@@ -28,7 +28,7 @@ def encrypt(message):
             # corresponding morse code
             # along with a space to separate
             # morse codes for different characters
-            cipher += MORSE_CODE_DICT[letter] + ' '
+            cipher += MORSE_CODE_DICT[letter] 
         else:
             # 1 space indicates different characters
             # and 2 indicates different words
