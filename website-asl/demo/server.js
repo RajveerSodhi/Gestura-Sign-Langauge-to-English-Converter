@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/run", (req, res) => {
-  const scriptPath = `"${path.join(__dirname, "../../noTimeTest.py")}"`;
+  const scriptPath = `"${path.join(__dirname, "../../ASL.py")}"`;
   const lang = req.query.language;
  
   exec(`python ${scriptPath} ${lang}`, (error, stdout, stderr) => {
