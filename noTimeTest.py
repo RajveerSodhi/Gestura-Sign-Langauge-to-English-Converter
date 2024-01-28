@@ -22,11 +22,10 @@ np.set_printoptions(suppress=True)
 script_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Load the model
-model = load_model(os.path.join(script_directory, "Model_RJ/keras_model.h5"), compile=False)
-
+model = load_model("Model_SJ/keras_model.h5", compile=False)
 
 # Load the labels
-class_names = open(os.path.join(script_directory, "Model_RJ/labels.txt"), "r").readlines()
+class_names = open("Model_SJ/labels.txt", "r").readlines()
 
 # CAMERA can be 0 or 1 based on default camera of your computer
 camera = cv2.VideoCapture(0)

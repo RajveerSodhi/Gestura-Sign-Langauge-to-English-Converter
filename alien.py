@@ -95,10 +95,9 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     '?':'..--..', '/':'-..-.', '-':'-....-',
                     '(':'-.--.', ')':'-.--.-'}
  
-# Function to encrypt the string
-# according to the morse code chart
+# Function to encrypt the string according to the morse code chart
 def encrypt(message):
-    cipher = ''
+    cypher = ''
     for letter in message:
         if letter != ' ':
  
@@ -106,24 +105,20 @@ def encrypt(message):
             # corresponding morse code
             # along with a space to separate
             # morse codes for different characters
-            cipher += MORSE_CODE_DICT[letter] + ' '
+            cypher += MORSE_CODE_DICT[letter] + ' '
         else:
             # 1 space indicates different characters
             # and 2 indicates different words
-            cipher += ' '
+            cypher += ' '
  
-    return cipher
+    return cypher
  
-# Function to decrypt the string
-# from morse to english
+# Function to decrypt the string from morse to english
 def decrypt(message):
- 
-    # extra space added at the end to access the
-    # last morse code
     message += ' '
  
-    decipher = ''
-    citext = ''
+    decypher = ''
+    ctext = ''
     for letter in message:
  
         # checks for space
@@ -133,7 +128,7 @@ def decrypt(message):
             i = 0
  
             # storing morse code of a single character
-            citext += letter
+            ctext += letter
  
         # in case of space
         else:
@@ -144,15 +139,15 @@ def decrypt(message):
             if i == 2 :
  
                  # adding space to separate words
-                decipher += ' '
+                decypher += ' '
             else:
  
                 # accessing the keys using their values (reverse of encryption)
-                decipher += list(MORSE_CODE_DICT.keys())[list(MORSE_CODE_DICT
-                .values()).index(citext)]
-                citext = ''
+                decypher += list(MORSE_CODE_DICT.keys())[list(MORSE_CODE_DICT
+                .values()).index(ctext)]
+                ctext = ''
  
-    return decipher
+    return decypher
  
 # Hard-coded driver function to run the program
 def main():
@@ -161,7 +156,7 @@ def main():
     # print (result)
  
     # message = "--. . . -.- ... -....- ..-. --- .-. -....- --. . . -.- ..."
-    # CAT = -.-. .- -
+    # CAT = -.-. .- - ... -....- .- .-. . -....- -.-. ..- - .
     result = decrypt(morse)
     print (result)
  
