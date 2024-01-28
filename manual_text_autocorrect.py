@@ -35,7 +35,11 @@ def fix_text(text):
 
     # run autocorrect
     spell = Speller()
-    text = spell(text)
+    split_text = text.split()
+    for i in range(len(split_text)):
+        if not diction.check(split_text[i]):
+            split_text[i] = spell(split_text[i])
+    text = " ".join(split_text)
 
     # fix broken words
     split_text = text.split()
@@ -53,5 +57,6 @@ def fix_text(text):
 
     return text
 
-for text in weird_texts:
-    print(fix_text(text))
+# for text in weird_texts:
+#     print(fix_text(text))
+print(fix_text("BOLD OWL FLFW"))
