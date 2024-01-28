@@ -6,66 +6,126 @@
     <link rel="stylesheet" href="./styles.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+            const darkmode = new Darkmode().showWidget();
+            darkmode.toggle();
+            darkmode.toggle();
+        }
+        window.addEventListener("load", addDarkmodeWidget);
+
+        function toggleContent(){
+          const content = document.getElementById("content");
+          const darkModeActive = document.querySelector("body").classList.contains("darkmode--activated");
+          if(darkModeActive){
+            content.innerHTML = "Dark mode is active !";
+          }
+          else{
+            content.innerHTML = "Light mode is active !";
+          }
+        }
+    </script>
     <title>Generic Website</title>
 </head>
-<body>
-
+<body id="content">
     <header>
         <nav>
             <div class="logo">Logo</div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#Features">Features</a></li>
+                <li><a href="#Team">Team</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="hero" class="hero">
+    <section id="Home" id="hero" class="hero">
       <div id="particles-js"></div>
       <div class="content">
          <span id="element"></span>
-          <p id="subhead">Your tagline goes here.</p>
+          <p id="subhead">Good communication is the bridge between confusion and clarity </p>
           <form action="/run" method="GET">
             <input type="text" name="language" placeholder="language">
             <button type="submit" class="cta-button" id="cta-button">Get Started</button>
           </form>
+          <p>We have created a program that takes in ASL gestures and converts it to text and speech in 5 different languages. This makes it easier for specially abled people to communicate easier. The languages available are English, Japanese, Chinese(Mandarin), French and Spanish. This could also allow people who have knowledge of ASL to learn different languages. Another aspect of our program is to communicate with a new species in their language. It takes in gestures in the Alien language and converts it to English text. If you are interested in knowing more about the same, please email one of the project contributors !!</p>
       </div>
   </section>
 
-    <section class="section">
+
+    <section id = "Features" class="section">
       <div class="image">
-        <img src="image1.jpg" alt="Image 1">
+        <img src="./images/Om.png" alt="Image 1">
       </div>
       <div class="text">
-        <h2>Blah Blah</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu cursus nibh, sit amet tempus erat. Nulla facilisi. Duis vehicula eu nisi sed feugiat. Vestibulum congue magna in velit malesuada aliquet. Donec condimentum augue ac urna elementum convallis in nec nibh. Suspendisse potenti. Donec accumsan eleifend accumsan..</p>
+        <h2>Machine Learning for ASL Recognition</h2>
+        <p>In the first phase of our project, we delved into machine learning to develop 
+          a robust system for converting American Sign Language (ASL) gestures into text . 
+          We created our own dataset containing hand gestures, 
+          we trained our model to recognize and classify each frame of sign language into its 
+          corresponding letter. By utilizing machine learning algorithms using tensorflow and keras to implement a CNN like model, 
+          our system became adept at understanding the intricacies and variations in hand movements, 
+          providing accurate and efficient conversion from sign language to text.</p>
       </div>
     </section>
 
     <section class="section">
      
       <div class="text">
-        <h2>Section 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu cursus nibh, sit amet tempus erat. Nulla facilisi. Duis vehicula eu nisi sed feugiat. Vestibulum congue magna in velit malesuada aliquet. Donec condimentum augue ac urna elementum convallis in nec nibh. Suspendisse potenti. Donec accumsan eleifend accumsan..</p>
-
+        <h2>Computer Vision for Gesture Recognition</h2>
+        <p>To enhance the user experience, we implemented computer vision techniques to recognize and interpret hand gestures in real-time. Using OpenCV, our system can detect the position, movement, and orientation of hands, allowing for gesture recognition.</p>
       </div>
       <div class="image">
-        <img src="image1.jpg" alt="Image 3">
+        <img src="./images/SJ.png" alt="Image 3">
       </div>
     </section>
 
     <section class="section">
       <div class="image">
-        <img src="image1.jpg" alt="Image 1">
+        <img src="./images/RV.png" alt="Image 1">
       </div>
       <div class="text">
-        <h2>Blah Blah</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu cursus nibh, sit amet tempus erat. Nulla facilisi. Duis vehicula eu nisi sed feugiat. Vestibulum congue magna in velit malesuada aliquet. Donec condimentum augue ac urna elementum convallis in nec nibh. Suspendisse potenti. Donec accumsan eleifend accumsan..</p>
+        <h2>Full Stack Web Development</h2>
+        <p>After successfully implementing machine learning and computer vision, we incorporated to the side of full-stack web development to make our solution user-friendly by allowing not tech-savy people to use the program. We created a user-friendly website that allows the use of the sign language translation service, offering an intuitive interface for users to input gestures and receive corresponding text and speech outputs. We used JS, HTML, CSS along with Node.js and Express for our server-side to create this interface.</p>
       </div>
     </section>
 
+    <section class="section">
+     
+      <div class="text">
+        <h2>Unity Animation for Alien 3D-Modelling</h2>
+        <p>In the final phase, we incorporated Unity, a powerful game development engine, to bring an interactive 3D model to life. We designed an animated alien character that mirrors the sign language gestures for Alien language being input into the system. This not only adds a visually engaging element to the website but also serves as a dynamic tool for users to visually confirm the accuracy of their sign language input. The Unity animation provides an immersive experience.</p>
+      </div>
+      <div class="image">
+        <img src="./images/RJ.png" alt="Image 3">
+      </div>
+    </section>
+
+    <section id="Team" class="team">
+      <h2>Meet the Team</h2>
+      <div class="team-member">
+        <img src="./images/profile.jpg" alt="Member 1" class="team-photo">
+        <h3>Om Mistry</h3>
+        <p>ommistry012004@gmail.com</p>
+      </div>
+      <div class="team-member">
+        <img src="./images/pfpSJ.jpeg" alt="Member 2" class="team-photo">
+        <h3>Sanjith Senthi</h3>
+        <p>sanjithsenthilr@gmail.com</p>
+      </div>
+      <div class="team-member">
+        <img src="./images/pfpRJ.jpg" alt="Member 2" class="team-photo">
+        <h3>Rajveer Sodhi</h3>
+        <p>rajveersodhi@gmail.com</p>
+      </div>
+      <div class="team-member">
+        <img src="./image1.jpg" alt="Member 2" class="team-photo">
+        <h3>Ribhav Sharma</h3>
+        <p>hlorbv@gmail.com</p>
+      </div>
+    </section>
 
     <footer>
         <p>&copy; 2024 Your Website Name. All rights reserved.</p>
@@ -74,10 +134,21 @@
     <script src="app.js"></script>
     <script>
       var typed = new Typed('#element', {
-        strings: ['<i>First</i> sentence.', '&amp; a second sentence.'],
+        strings: ['<i>Hello</i> Human.', 'Welcome to The Future!'],
         typeSpeed: 50,
       });
+
+      const darkmodeToggle = document.querySelector(".darkmode-toggle");
+      darkmodeToggle.addEventListener("click", toggleContent);
     </script>
 
+</body>
+
+<body id="darkmode--activated">
+  <button id="darkModeToggle">Toggle Dark Mode</button>
+  <section>
+    <h1>Welcome to Our Website</h1>
+    <p>This is some sample text.</p>
+  </section>
 </body>
 </html>

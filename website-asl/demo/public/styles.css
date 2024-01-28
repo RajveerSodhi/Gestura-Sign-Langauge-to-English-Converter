@@ -42,7 +42,7 @@ a {
 .hero {
   background-image: url('hero-image.jpg');
   background-size: cover;
-  color: #000; /* Change text color to black */
+  color: #000; 
   text-align: center;
   padding: 5em 1em;
 }
@@ -51,7 +51,7 @@ a {
   display: inline-block;
   padding: 10px 20px;
   margin-top: 20px;
-  background-color: #22c930;
+  background-color: #000080;
   color: #fff;
   text-decoration: none;
 }
@@ -75,17 +75,28 @@ footer {
   position: relative;
 }
 
+.hero p{
+  line-height:1.5em;
+  font-weight:500;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: larger;
+  
+}
+
 .text{
   color: #000000;
 }
 #element{
   color: #000000;
-  font-size: 40pt;
+  font-size: 60pt;
+  font-weight: bold;
 }
 
 #subhead{
   color: #000000;
   font-size: 20pt;
+  font-weight: 500;
 }
 
 .hero .content {
@@ -131,4 +142,41 @@ footer{
 .section{
   margin: 0 auto;
   max-width: 80%;
+}
+
+.team {
+  text-align: center;
+  margin-top: 120px;
+
+}
+
+.team-member {
+  display: inline-block;
+  margin: 20px;
+  width: 300px;
+  height: 300px;
+}
+
+.team-photo {
+  border-radius: 80%;
+  width: 180px;
+  height: 180px;
+  border: 2px solid #000;
+  object-fit:cover;
+}
+
+.darkmode-activated {
+  transition: background-color 0.5s ease;
+  color: #000;
+  background-color: #fff;
+}
+
+.dark-mode {
+  color: #fff;
+  background-color: #000;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
 }

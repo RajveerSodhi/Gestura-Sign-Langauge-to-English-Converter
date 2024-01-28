@@ -27,9 +27,6 @@ def fix_text(text):
     # remove leading and trailing spaces
     text = text.strip()
 
-    # remove extra spaces
-    text = " ".join(text.split())
-
     # remove repeated characters
     for letter in text:
         repeated_sequence = letter * 3
@@ -49,6 +46,10 @@ def fix_text(text):
             split_text[i + 1] = ""
 
     text = " ".join(split_text)
+
+      # remove extra spaces
+    text = " ".join(text.split())
+
 
     return text
 
