@@ -1,7 +1,9 @@
 # Gestura
 
+
 ## Video Demonstration
-Click [Here](https://www.youtube.com/watch?v=L5aaeU7vLf8)
+Click to watch on YouTube:
+[![Click Here](https://github.com/RajveerSodhi/Gestura/assets/65150031/4aad8f8f-df9c-470c-8c1a-40aaad7fa900)](https://www.youtube.com/watch?v=L5aaeU7vLf8)
 
 ## Inspiration
 We wanted to select facial recognition, but it is already very advanced and developed. This led us to gesture recognition and use it to help people with special needs. Since, humanity has now moved to space, we have people from different cultural backgrounds and languages living in a community together. The WHO estimates that 466 million people were living with disability hearing impairment in 2018, and this number is supposed to be doubled by 2025. This is where gesture recognition makes it easy to communicate, especially for people with special needs, as it allows them to talk seamlessly without fewer problems. This is how we ended up with the idea of creating an ASL Gesture recognition software.
