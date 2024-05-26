@@ -1,11 +1,9 @@
-from gtts import gTTS
 import os
-
-
+from gtts import gTTS
 
 def text_to_speech(text, lang):
-    codes = {
-         "afrikaans": "af",
+  codes = {
+  "afrikaans": "af",
   "albanian": "sq",
   "amharic": "am",
   "arabic": "ar",
