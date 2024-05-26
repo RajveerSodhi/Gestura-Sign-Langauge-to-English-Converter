@@ -108,6 +108,6 @@ def text_to_speech(text, lang):
   "yoruba": "yo",
   "zulu": "zu",
     }
-    tts = gTTS(text=text, lang=codes[lang], slow=False)
-    tts.save("output.mp3")
-    os.system("start output.mp3")
+  tts = gTTS(text=text, lang=codes[lang], slow=False)
+  tts.save("output.mp3")
+  os.system("start output.mp3")

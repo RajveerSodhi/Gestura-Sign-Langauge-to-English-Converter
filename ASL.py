@@ -1,7 +1,6 @@
 import os
 import time
 import sys
-import math
 import cv2
 from gtts import gTTS
 from cvzone.HandTrackingModule import HandDetector
